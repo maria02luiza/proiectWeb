@@ -1,0 +1,349 @@
+/* Stiluri pentru pagina coșului de cumpărături */
+.cart-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cart-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cart-header p {
+    color: #777;
+}
+
+.cart-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Stiluri pentru lista de produse din coș */
+.cart-items {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 100px 2fr 1fr 1fr 1fr auto;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.item-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-details h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.item-description {
+    font-size: 14px;
+    color: #777;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #333;
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.quantity-input {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.item-total {
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #e74c3c;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.remove-btn:hover {
+    color: #c0392b;
+}
+
+/* Stiluri pentru sumarul comenzii */
+.cart-summary {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    height: fit-content;
+}
+
+.cart-summary h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-row.total {
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #eee;
+}
+
+.coupon-code {
+    margin: 20px 0;
+    display: flex;
+}
+
+.coupon-code input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+}
+
+.apply-coupon {
+    background-color: #f8d7da;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.apply-coupon:hover {
+    background-color: #f1c1c6;
+}
+
+.checkout-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 15px;
+}
+
+.checkout-btn:hover {
+    background-color: #444;
+}
+
+.continue-shopping {
+    display: block;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.continue-shopping:hover {
+    color: #f8d7da;
+}
+
+/* Stiluri pentru coșul gol */
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.cart-empty p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #777;
+}
+
+.cart-empty .btn {
+    background-color: #f8d7da;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.cart-empty .btn:hover {
+    background-color: #f1c1c6;
+}
+
+/* Stiluri pentru secțiunea de produse recomandate */
+.recommended-products {
+    margin-top: 60px;
+}
+
+.recommended-products h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.recommended-products .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.recommended-products .product {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.recommended-products .product:hover {
+    transform: translateY(-5px);
+}
+
+.recommended-products .product img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.recommended-products .product-info {
+    padding: 15px;
+}
+
+.recommended-products .product-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.recommended-products .product-price {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.recommended-products .add-to-cart {
+    background-color: #f8d7da;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.recommended-products .add-to-cart:hover {
+    background-color: #f1c1c6;
+}
+
+/* Stiluri responsive */
+@media (max-width: 992px) {
+    .cart-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-summary {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-item {
+        grid-template-columns: 80px 1fr;
+        grid-template-areas:
+            "image details"
+            "image price"
+            "quantity quantity"
+            "total remove";
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .item-image {
+        grid-area: image;
+    }
+
+    .item-details {
+        grid-area: details;
+    }
+
+    .item-price {
+        grid-area: price;
+    }
+
+    .item-quantity {
+        grid-area: quantity;
+        justify-content: flex-start;
+    }
+
+    .item-total {
+        grid-area: total;
+    }
+
+    .item-remove {
+        grid-area: remove;
+        justify-self: flex-end;
+    }
+
+    .recommended-products .products {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}

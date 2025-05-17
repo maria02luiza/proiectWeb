@@ -1,0 +1,101 @@
+/* CONT CLIENT - Contul Meu */
+.account {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+
+.account h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.account-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.account-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-form h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.account-form label {
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+.account-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.account-form button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #f8d7da;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.account-form button:hover {
+    background-color: #e5aeb2;
+}
+
+.account-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.account-link a {
+    color: #f8d7da;
+    text-decoration: none;
+}
+
+.account-link a:hover {
+    text-decoration: underline;
+}
+
+.account-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.account-info h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.account-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.account-info li {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 16px;
+}
+
+/* Responsive for Account Page */
+@media (max-width: 768px) {
+    .account-grid {
+        grid-template-columns: 1fr;
+    }
+}

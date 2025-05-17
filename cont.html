@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contul Meu - Elegance</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cont.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Elegance</div>
+      <p>Bijuterii de lux pentru momente speciale</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Acasă</a></li>
+        <li class="dropdown">
+          <a href="proiect.html">Produse</a>
+          <div class="dropdown-content">
+            <a href="inele.html">Inele</a>
+            <a href="bratari.html">Brățări</a>
+            <a href="cercei.html">Cercei</a>
+            <a href="lanturi.html">Lanțuri</a>
+          </div>
+        </li>
+        <li><a href="cos.html">Coș Cumpărături</a></li>
+        <li><a href="cont.html" class="active">Cont Client</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <section class="account">
+        <h2>Contul Meu</h2>
+        <div class="account-grid">
+          <form class="account-form">
+            <h3>Autentificare</h3>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="exemplu@elegance.ro"
+              required
+            />
+
+            <label for="password">Parolă</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="••••••••"
+              required
+            />
+
+            <button type="submit">Conectează-te</button>
+
+            <p class="account-link">Nu ai cont? <a href="#">Creează unul</a></p>
+          </form>
+
+          <div class="account-info">
+            <h3>Beneficii cont</h3>
+            <ul>
+              <li>✔ Urmărește comenzile</li>
+              <li>✔ Salvează produsele preferate</li>
+              <li>✔ Acces la oferte exclusive</li>
+              <li>✔ Istoric cumpărături</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Despre Elegance</h3>
+          <p>Bijuterii de lux create cu pasiune și meșteșug tradițional.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Informații Utile</h3>
+          <a href="#">Termeni și Condiții</a>
+          <a href="#">Politica de Confidențialitate</a>
+          <a href="#">Politica de Retur</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: contact@elegance.ro</p>
+          <p>Telefon: 0745 123 456</p>
+          <p>Adresă: Str. Bijuteriilor nr. 10, București</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Elegance - Toate drepturile rezervate</p>
+      </div>
+    </footer>
+  </body>
+</html>
