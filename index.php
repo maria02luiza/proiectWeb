@@ -15,14 +15,14 @@
 
     <nav>
       <ul>
-        <li><a href="index.html" class="active">Acasă</a></li>
+        <li><a href="index.php" class="active">Acasă</a></li>
         <li class="dropdown">
-          <a href="produse.html">Produse</a>
+          <a href="produse.php">Produse</a>
           <div class="dropdown-content">
-            <a href="inele.html">Inele</a>
-            <a href="bratari.html">Brățări</a>
-            <a href="cercei.html">Cercei</a>
-            <a href="lanturi.html">Lanțuri</a>
+            <a href="inele.php">Inele</a>
+            <a href="bratari.php">Brățări</a>
+            <a href="cercei.php">Cercei</a>
+            <a href="lanturi.php">Lanțuri</a>
           </div>
         </li>
         <li><a href="cos.html">Coș Cumpărături</a></li>
@@ -36,43 +36,32 @@
         <p>
           Bijuterii de lux, create pentru a fi purtate cu stil și rafinament.
         </p>
-        <a href="produse.html" class="btn">Descoperă Colecția</a>
+        <a href="produse.php" class="btn">Descoperă Colecția</a>
       </div>
     </section>
 
     <main class="container">
-      <!-- Categorii -->
       <section class="categories">
         <h2>Categorii Populare</h2>
         <div class="category-grid">
-          <div class="category-card">
-            <a href="inele.html">
-              <img src="in_auralb.jpg" alt="Inele" />
-              <h3>Inele</h3>
-            </a>
-          </div>
-          <div class="category-card">
-            <a href="bratari.html">
-              <img src="br_diam.jpg" alt="Brățări" />
-              <h3>Brățări</h3>
-            </a>
-          </div>
-          <div class="category-card">
-            <a href="cercei.html">
-              <img src="cr_aurroz.jpg" alt="Cercei" />
-              <h3>Cercei</h3>
-            </a>
-          </div>
-          <div class="category-card">
-            <a href="lanturi.html">
-              <img src="la_safir.jpg" alt="Lanțuri" />
-              <h3>Lanțuri</h3>
-            </a>
-          </div>
+            <!-- php -->
+          <?php
+          include 'connect.php';
+          $sql=" SELECT * FROM `categorii`";
+          $rez=mysqli_query($link,$sql);
+          while($row=mysqli_fetch_array($rez)){
+            echo "<div class='category-card'>
+              <a href='".$row['LinkPagina']."'>
+              <img src='".$row['LinkPoza']."' alt='".$row['Nume']."' />
+              <h3>".$row['Nume']."</h3>";
+            echo "</a>
+            </div>";
+          }
+?>
         </div>
       </section>
 
-      <!-- Avantaje -->
+      
       <section class="advantages">
         <h2>De ce Elegance?</h2>
         <div class="advantages-grid">

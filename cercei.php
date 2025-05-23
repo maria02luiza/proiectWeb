@@ -14,14 +14,14 @@
 
     <nav>
       <ul>
-        <li><a href="index.html">Acasă</a></li>
+        <li><a href="index.php">Acasă</a></li>
         <li class="dropdown">
-          <a href="produse.html" class="active">Produse</a>
+          <a href="produse.php" class="active">Produse</a>
           <div class="dropdown-content">
-            <a href="inele.html" class="active">Inele</a>
-            <a href="bratari.html">Brățări</a>
-            <a href="cercei.html">Cercei</a>
-            <a href="lanturi.html">Lanțuri</a>
+            <a href="inele.php" class="active">Inele</a>
+            <a href="bratari.php">Brățări</a>
+            <a href="cercei.php">Cercei</a>
+            <a href="lanturi.php">Lanțuri</a>
           </div>
         </li>
         <li><a href="cos.html">Coș Cumpărături</a></li>
@@ -30,44 +30,24 @@
     </nav>
 
     <main class="container">
-      <h2>Inele Elegante</h2>
+      <h2>Cercei</h2>
 
       <div class="products">
-        <div class="product">
-          <img src="in_auralb.jpg" alt="Inel Solitaire Aur Alb" />
-          <div class="product-info">
-            <h3 class="product-title">Inel Solitaire Aur Alb</h3>
-            <p class="product-price">700.00 Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
-
-        <div class="product">
-          <img src="in_diam.jpg" alt="Inel Eternity Diamante" />
-          <div class="product-info">
-            <h3 class="product-title">Inel Eternity Diamante</h3>
-            <p class="product-price">800.00Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
-
-        <div class="product">
-          <img src="in_safir.jpg" alt="Inel Vintage Safir" />
-          <div class="product-info">
-            <h3 class="product-title">Inel Vintage cu Safir</h3>
-            <p class="product-price">900.00 Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
-
-        <div class="product">
-          <img src="in_aurroz.jpg" alt="Inel Minimalist Aur Roz" />
-          <div class="product-info">
-            <h3 class="product-title">Inel Aur Roz</h3>
-            <p class="product-price">800.00Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
+         <?php
+        include 'connect.php';
+        $sql=" SELECT * FROM `produse` WHERE Id_Categorie=3 ";
+        $rez=mysqli_query($link,$sql);
+        while($row=mysqli_fetch_array($rez)){
+          echo "<div class='product'>
+            <img src='".$row['LinkPoza']."' alt='".$row['Nume']."' />
+            <div class='product-info'>
+              <h3 class='product-title'>".$row['Nume']."</h3>
+              <p class='product-price'>".$row['Pret']." Lei</p>
+              <button class='add-to-cart'>Adaugă în coș</button>
+            </div>
+          </div>";
+        }
+        ?>
       </div>
     </main>
 

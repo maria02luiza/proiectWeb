@@ -11,6 +11,6 @@ $link = mysqli_connect('127.0.0.1', 'root', '', 'proiectweb');
 if ($link === false) {
   die('ERROR: Could not connect. ' . mysqli_connect_error());
 } else {
-  echo 'connect OK';
+  // echo 'connect OK';
 }
 ?>

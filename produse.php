@@ -14,14 +14,14 @@
 
     <nav>
       <ul>
-        <li><a href="index.html">Acasă</a></li>
+        <li><a href="index.php">Acasă</a></li>
         <li class="dropdown">
-          <a href="produse.html">Produse</a>
+          <a href="produse.php">Produse</a>
           <div class="dropdown-content">
-            <a href="inele.html">Inele</a>
-            <a href="bratari.html">Brățări</a>
-            <a href="cercei.html">Cercei</a>
-            <a href="lanturi.html">Lanțuri</a>
+            <a href="inele.php">Inele</a>
+            <a href="bratari.php">Brățări</a>
+            <a href="cercei.php">Cercei</a>
+            <a href="lanturi.php">Lanțuri</a>
           </div>
         </li>
         <li><a href="cos.html">Coș Cumpărături</a></li>
@@ -36,7 +36,7 @@
           Descoperă colecția noastră de bijuterii care îmbină designul modern cu
           elemente tradiționale
         </p>
-        <a href="produse.html" class="btn">Explorează Colecția</a>
+        <a href="produse.php" class="btn">Explorează Colecția</a>
       </div>
     </section>
 
@@ -44,41 +44,61 @@
       <h2>Produse Populare</h2>
 
       <div class="products">
-        <div class="product">
-          <img src="in_auralb.jpg" alt="Inel " />
-          <div class="product-info">
-            <h3 class="product-title">Inel Minimalist Aur Roz</h3>
-            <p class="product-price">800.00Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
-
-        <div class="product">
-          <img src="br_diam.jpg" alt="Brățară " />
-          <div class="product-info">
-            <h3 class="product-title">Bratara Diamante</h3>
-            <p class="product-price">300.00 Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
-
-        <div class="product">
-          <img src="cr_safir.jpg" alt="Cercei " />
-          <div class="product-info">
-            <h3 class="product-title">Cercei Aur Roz</h3>
-            <p class="product-price">1299.99Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
-
-        <div class="product">
-          <img src="la_diam.jpg" alt="Lanț " />
-          <div class="product-info">
-            <h3 class="product-title">Lant Diamante</h3>
-            <p class="product-price">3000.00 Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
+        <?php
+          include "connect.php";
+          $sql = "SELECT * FROM produse WHERE Id_Categorie = 1 LIMIT 1";
+          $rez = mysqli_query($link, $sql);
+          while($row = mysqli_fetch_array($rez))
+          {
+              echo "<div class='product'>
+                  <img src='".$row['LinkPoza']."' alt='Inel' />
+                  <div class='product-info'>
+                    <h3 class='product-title'>".$row['Nume']."</h3>
+                    <p class='product-price'>".$row['Pret']."</p>
+                    <button class='add-to-cart'>Adaugă în coș</button>
+                  </div>
+                </div>";
+          }
+          $sql = "SELECT * FROM produse WHERE Id_Categorie = 2 LIMIT 1";
+          $rez = mysqli_query($link, $sql);
+          while($row = mysqli_fetch_array($rez))
+          {
+              echo "<div class='product'>
+                  <img src='".$row['LinkPoza']."' alt='Brățară' />
+                  <div class='product-info'>
+                    <h3 class='product-title'>".$row['Nume']."</h3>
+                    <p class='product-price'>".$row['Pret']."</p>
+                    <button class='add-to-cart'>Adaugă în coș</button>
+                  </div>
+                </div>";
+          }
+          $sql = "SELECT * FROM produse WHERE Id_Categorie = 3 LIMIT 1";
+          $rez = mysqli_query($link, $sql);
+          while($row = mysqli_fetch_array($rez))
+          {
+              echo "<div class='product'>
+                  <img src='".$row['LinkPoza']."' alt='Cercei' />
+                  <div class='product-info'>
+                    <h3 class='product-title'>".$row['Nume']."</h3>
+                    <p class='product-price'>".$row['Pret']."</p>
+                    <button class='add-to-cart'>Adaugă în coș</button>
+                  </div>
+                </div>";
+          }
+          $sql = "SELECT * FROM produse WHERE Id_Categorie = 4 LIMIT 1";
+          $rez = mysqli_query($link, $sql);
+          while($row = mysqli_fetch_array($rez))
+          {
+              echo "<div class='product'>
+                  <img src='".$row['LinkPoza']."' alt='Lanț' />
+                  <div class='product-info'>
+                    <h3 class='product-title'>".$row['Nume']."</h3>
+                    <p class='product-price'>".$row['Pret']."</p>
+                    <button class='add-to-cart'>Adaugă în coș</button>
+                  </div>
+                </div>";
+          }
+        ?>
       </div>
     </main>
 

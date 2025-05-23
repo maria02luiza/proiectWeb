@@ -14,14 +14,14 @@
 
     <nav>
       <ul>
-        <li><a href="index.html">Acasă</a></li>
+        <li><a href="index.php">Acasă</a></li>
         <li class="dropdown">
-          <a href="produse.html" class="active">Produse</a>
+          <a href="produse.php" class="active">Produse</a>
           <div class="dropdown-content">
-            <a href="inele.html" class="active">Inele</a>
-            <a href="bratari.html">Brățări</a>
-            <a href="cercei.html">Cercei</a>
-            <a href="lanturi.html">Lanțuri</a>
+            <a href="inele.php" class="active">Inele</a>
+            <a href="bratari.php">Brățări</a>
+            <a href="cercei.php">Cercei</a>
+            <a href="lanturi.php">Lanțuri</a>
           </div>
         </li>
         <li><a href="cos.html">Coș Cumpărături</a></li>
@@ -30,44 +30,26 @@
     </nav>
 
     <main class="container">
-      <h2>Lanturi</h2>
+      <h2>Bratari</h2>
 
       <div class="products">
-        <div class="product">
-          <img src="la_auralb.jpg" alt="Lant Aur Alb" />
-          <div class="product-info">
-            <h3 class="product-title">Lanturi Aur Alb</h3>
-            <p class="product-price">2500.00 Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
+         <?php
+        include 'connect.php';
+        $sql=" SELECT * FROM `produse` WHERE Id_Categorie=2 ";
+        $rez=mysqli_query($link,$sql);
+        while($row=mysqli_fetch_array($rez)){
+          echo "<div class='product'>
+            <img src='".$row['LinkPoza']."' alt='".$row['Nume']."' />
+              <div class='product-info'>
+              <h3 class='product-title'>".$row['Nume']."</h3>
+              <p class='product-price'>".$row['Pret']."</p>
+                <button class='add-to-cart'>Adaugă în coș</button>
+            </div>
+            </div>";
+          
+        }
+        ?>
 
-        <div class="product">
-          <img src="la_diam.jpg" alt="Lant Diamante" />
-          <div class="product-info">
-            <h3 class="product-title">Lant Diamante</h3>
-            <p class="product-price">3000.00 Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
-
-        <div class="product">
-          <img src="la_safir.jpg" alt="Lant Safir" />
-          <div class="product-info">
-            <h3 class="product-title">Lant Safir</h3>
-            <p class="product-price">1999.99 Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
-
-        <div class="product">
-          <img src="la_aurroz.jpg" alt="Lant Aur Roz" />
-          <div class="product-info">
-            <h3 class="product-title">Lant Aur Roz</h3>
-            <p class="product-price">1299.99Lei</p>
-            <button class="add-to-cart">Adaugă în coș</button>
-          </div>
-        </div>
       </div>
     </main>
 
