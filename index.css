@@ -35,6 +35,10 @@
     border-radius: 8px;
     margin-bottom: 10px;
 }
+.category-card a {
+    text-decoration: none;
+    color: #333;
+}
 
 /* AVANTAJE */
 .advantages {
