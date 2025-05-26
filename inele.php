@@ -28,7 +28,7 @@
         <li><a href="cont.html">Cont Client</a></li>
       </ul>
     </nav>
-
+    
     <main class="container">
       <h2>Inele Elegante</h2>
 
@@ -91,5 +91,6 @@
         });
       });
     </script>
+     <script src="cos.js"></script>
   </body>
-</html>
+  </html>

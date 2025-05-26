@@ -33,17 +33,21 @@
       <h2>Cercei</h2>
 
       <div class="products">
-         <?php
+        <?php
         include 'connect.php';
-        $sql=" SELECT * FROM `produse` WHERE Id_Categorie=3 ";
+        $sql=" SELECT * FROM `produse` WHERE Id_Categorie=3";
         $rez=mysqli_query($link,$sql);
-        while($row=mysqli_fetch_array($rez)){
+        while($row=mysqli_fetch_array($rez))
+        {
           echo "<div class='product'>
             <img src='".$row['LinkPoza']."' alt='".$row['Nume']."' />
             <div class='product-info'>
               <h3 class='product-title'>".$row['Nume']."</h3>
               <p class='product-price'>".$row['Pret']." Lei</p>
-              <button class='add-to-cart'>Adaugă în coș</button>
+              <form action='cos.php' method='POST'>
+                <input type='hidden' name='id_produs' value='".$row['ID']."'><br>
+                <button type='submit' name='submit' class='add-to-cart'>Adaugă în coș</button>
+              </form>
             </div>
           </div>";
         }
@@ -76,19 +80,19 @@
     </footer>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   const addToCartButtons = document.querySelectorAll(".add-to-cart");
 
-        addToCartButtons.forEach((button) => {
-          button.addEventListener("click", function () {
-            const product = this.closest(".product");
-            const productTitle =
-              product.querySelector(".product-title").textContent;
+      //   addToCartButtons.forEach((button) => {
+      //     button.addEventListener("click", function () {
+      //       const product = this.closest(".product");
+      //       const productTitle =
+      //         product.querySelector(".product-title").textContent;
 
-            alert(`Produsul "${productTitle}" a fost adăugat în coș!`);
-          });
-        });
-      });
+      //       alert(`Produsul "${productTitle}" a fost adăugat în coș!`);
+      //     });
+      //   });
+      // });
     </script>
   </body>
 </html>

@@ -1,3 +1,27 @@
+<?php
+$id_produs = 0;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+  if (!is_numeric($_POST['id_produs']))
+  {
+    return;
+  }
+
+  $id_produs = (int)$_POST['id_produs'] ;
+
+	if(isset($_POST['submit'])) 
+	{
+	  include "connect.php";
+    $sql = "INSERT into `cos_cumparaturi` (Id_Produs, Id_User) VALUES ($id_produs, 0)";
+    if ($link->query($sql) === TRUE) 
+    {
+      //echo "New record created successfully";
+    }
+    mysqli_close($link);
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="ro">
   <head>
@@ -19,14 +43,14 @@
         <li class="dropdown">
           <a href="produse.php">Produse</a>
           <div class="dropdown-content">
-            <a href="inele.html">Inele</a>
-            <a href="bratari.html">Brățări</a>
-            <a href="cercei.html">Cercei</a>
-            <a href="lanturi.html">Lanțuri</a>
+            <a href="inele.php">Inele</a>
+            <a href="bratari.php">Brățări</a>
+            <a href="cercei.php">Cercei</a>
+            <a href="lanturi.php">Lanțuri</a>
           </div>
         </li>
-        <li><a href="cos.html" class="active">Coș Cumpărături</a></li>
-        <li><a href="cont.html">Cont Client</a></li>
+        <li><a href="cos.php" class="active">Coș Cumpărături</a></li>
+        <li><a href="cont.php">Cont Client</a></li>
       </ul>
     </nav>
 
@@ -38,6 +62,38 @@
 
       <div class="cart-container">
         <div class="cart-items">
+          <?php
+          include 'connect.php';
+          $sql = "SELECT produse.* FROM cos_cumparaturi INNER JOIN produse ON cos_cumparaturi.Id_Produs = produse.ID WHERE Id_User = 0";
+          $rez = mysqli_query($link, $sql);
+          while ($row = mysqli_fetch_array($rez)) {
+            echo"
+            <img src='" . $row['LinkPoza'] . "' alt='" . $row['Nume'] . "' />
+            <div class='item-details'>
+              <h3>" . $row['Nume'] . "</h3>
+            </div>
+            <div class='item-price'>" . $row['Pret'] . " Lei</div>
+            <div class='item-quantity'>
+              <button class='quantity-btn decrease'>-</button>
+              <input type='number' value='1' min='1' class='quantity-input' />
+              <button class='quantity-btn increase'>+</button>
+            </div>
+            <div class='item-remove'>
+              <button class='remove-btn'>×</button>
+            </div>
+            <div class=cart_empty style='display: none'>
+              <p>Coșul dumneavoastră este gol</p>
+              <a href='produse.php' class='btn'>Continuă cumpărăturile</a>
+            </div>
+            "
+          ;
+
+          }
+          //mysqli_close($link);
+          ?>
+
+
+<!--
           <div class="cart-item">
             <div class="item-image">
               <img src="/api/placeholder/100/100" alt="Inel de logodnă" />
@@ -59,6 +115,7 @@
               <button class="remove-btn">×</button>
             </div>
           </div>
+            
 
           <div class="cart-item">
             <div class="item-image">
@@ -81,15 +138,28 @@
               <button class="remove-btn">×</button>
             </div>
           </div>
-
+        
           <div class="cart-empty" style="display: none">
             <p>Coșul dumneavoastră este gol</p>
             <a href="produse.php" class="btn">Continuă cumpărăturile</a>
           </div>
         </div>
+         -->
 
         <div class="cart-summary">
-          <h2>Sumar comandă</h2>
+
+        <?php
+          $sql = "SELECT SUM(produse.Pret) AS Subtotal FROM cos_cumparaturi INNER JOIN produse ON cos_cumparaturi.Id_Produs = produse.ID WHERE Id_User = 0";
+          $rez = mysqli_query($link, $sql);
+          $row = mysqli_fetch_array($rez);
+          $subtotal = $row['Subtotal'];
+          $transport = 20; // cost transport
+          $tva = $subtotal * 0.19; // TVA 19%
+          $total = $subtotal + $transport + $tva;
+          mysqli_close($link);
+          
+        ?>
+          <!-- <h2>Sumar comandă</h2>
           <div class="summary-row">
             <span>Subtotal:</span>
             <span>2.798 Lei</span>
@@ -115,7 +185,7 @@
           <button class="checkout-btn">Finalizează comanda</button>
           <a href="produse.php" class="continue-shopping"
             >Continuă cumpărăturile</a
-          >
+          > -->
         </div>
       </div>
 
